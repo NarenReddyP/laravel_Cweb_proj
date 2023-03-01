@@ -87,6 +87,12 @@ class User extends Authenticatable
 
     }
 
+    public static function emailvalidationdata($emaildata){
+         $emailresetdata= DB::table('user_login_tbl')->where('email',$emaildata);
+         return $emailresetdata;
+
+    }
+
 
 
 

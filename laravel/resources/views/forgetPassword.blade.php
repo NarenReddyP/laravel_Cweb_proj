@@ -3,6 +3,10 @@
 <head>
     <title>WB Solutions</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style>
 .btn-info{
    float: right;
@@ -13,6 +17,12 @@
     color: white;
     font-weight: 600;
 }
+
+img{
+    align-items: center;
+    padding-left: 30%;
+  }
+        </style>
     </style>
 </head>
 
@@ -28,11 +38,31 @@
                   <div class="card-header">Reset Password</div>
                   <div class="card-body">
   
-                    @if (Session::has('message'))
-                         <div class="alert alert-success" role="alert">
-                            {{ Session::get('message') }}
+                    {{-- @if (Session::has('resetsuccess'))
+                         <div id="successmsg" class="alert alert-success" role="alert">
+                            {{ Session::get('resetsuccess') }}
                         </div>
-                    @endif
+                    @endif --}}
+
+
+                    @if ($message = Session::get('resetsuccess'))
+                   <div style="color:green;" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ $message }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                   </button>
+                    </div>
+                   @endif
+
+                   @if (Session::get('errorsuccess'))
+                   @php //dd(Session::get('errorsuccess'))@endphp
+                   <div style="color:red;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ Session::get('errorsuccess')    }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                   </button>
+                    </div>
+                   @endif
                       
                      
                     {{-- <h1>Forget Password Email</h1> --}}
@@ -65,10 +95,22 @@
               </div>
           </div>
       </div>
+      <img src="{{ asset('assets/C_img/1598084.PNG') }}" alt="image">
   </div>
 </main>
 {{-- @endsection --}}
 
+
+    <script>
+    $(document).ready(function () {
+        $(".alert-success").delay(3000).fadeOut("slow");
+    });
+
+    $(document).ready(function () {
+        $(".alert-danger").delay(3000).fadeOut("slow");
+    });
+
+    </script>
 
 </body>
 </html>

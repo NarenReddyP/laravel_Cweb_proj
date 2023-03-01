@@ -58,10 +58,17 @@ Route::any('logout', [Controller::class, 'logout'])->name('logout');
 
 
 /*  FORGOT PASSWORD */
+
+
 Route::get('forget-password', [Controller::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [Controller::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('auth.forgetPassword', [Controller::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [Controller::class, 'submitResetPasswordForm'])->name('reset.password.post');
+//Route::get('resetPassword', [Controller::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::any('reset-password', [Controller::class, 'submitResetPasswordForm'])->name('reset-password');
+
+Route::get('resetPasswordMail', [Controller::class, 'showresetPasswordMailForm'])->name('resetPasswordMail');
+Route::get('forgetPasswordLink', [Controller::class, 'submitResetPasswordFormm'])->name('forgetPasswordLink');
+
+Route::post('passwordupdated', [Controller::class, 'resetPassword'])->name('passwordupdated');
 
 /*  QR CODE */
 Route::get('qrcode', [Controller::class, 'qrcodefun'])->name('qrcode');

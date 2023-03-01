@@ -144,7 +144,7 @@ ul{
 
 /*END FOOTER */
 
-/* LEFT SIDE MENU  */
+/* LEFT SIDE NAV MENU  */
 
 .side-navbar {
   padding-top: 5%;
@@ -157,22 +157,39 @@ ul{
   z-index: 8888;
   
 }
-.nav-link{
-    color: #370844;
-    text-decoration:none;
+
+.fa-angle-double-down{
+   float: right;
+   padding-right: 8px;
 }
-#qrcodedec{
-    text-decoration:none;
-    color: #370844;
+.aitemsstyle{
+    text-decoration: none;
+    color:#370844;
+}
+.aitemsstyle:hover{
+    text-decoration: none;
+    color:#FFF;
 }
 
-.nav-link:active,
-.nav-link:focus,
-.nav-lnik:hover {
+.nav_linkk{
+    color: #370844;
+    text-decoration:none;
+    width: 170px;
+    padding: 5px;
+    margin-block: 2px;
+
+}
+
+.nav_linkk:active,
+.nav_linkk:focus,
+.nav_linkk:hover {
   background-color: #ffffff26;
   color:white;
-  font-weight: 800;
-
+  font-weight: 700;
+  text-decoration: none;
+  padding: 5px;
+  transition: 0.5s;
+  
 }
 
 .my-container {
@@ -211,6 +228,68 @@ ul{
 }
 #socialicons a:hover{
     color: #fff;
+}
+
+
+
+
+
+.dropdown-btn{
+    background-color: #370844;
+    color:#370844;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #8d1583;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+  display: block;
+  background-color: #5f4756;
+  width: 170px;
+  transition: 0.5s;
+}
+
+/* Main content */
+
+
+/* Add an active class to the active dropdown button */
+/* .active {
+  background-color: green;
+  color: white;
+} */
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 0px;
+  width: 170px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 
@@ -303,18 +382,39 @@ ul{
       <a href="#" class="nav-link h3 text-white my-2">
         Company WEB </br>Documents
       </a>
-      <li href="#" class="nav-link">
+      <li href="#" class="nav_linkk">
         <i class="bx bxs-dashboard"></i>
-        <span class="mx-2">Home  <i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+        <a class="aitemsstyle" href=""><span class="mx-2">Home   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
       </li>
-      <li href="#" class="nav-link">
+      <li href="#" class="nav_linkk">
         <i class="bx bx-user-check"></i>
-        <span class="mx-2">Profile   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+        <a class="aitemsstyle"  href=""><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
       </li>
-      <li href="#" class="nav-link">
+      <li href="#" class="nav_linkk" id="qrcodedec">
         <i class="bx bx-conversation"></i>
-        <a id="qrcodedec" href="{{ route('qrcode') }}"><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+        <a class="aitemsstyle" href="{{ route('qrcode') }}"><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
       </li>
+      <li href="#" class="nav_linkk">
+        <i class="bx bxs-dashboard"></i>
+        <a class="aitemsstyle" href=""><span class="mx-2">Home   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+            
+      </li>
+      <li href="#" class="nav_linkk">
+        <i class="bx bx-user-check"></i>
+        <a class="aitemsstyle"  href=""><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+      </li>
+      
+      <div class="sidenav">
+      <button class="dropdown-btn">Dropdown 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+
     </ul>
 
     <span id="socialicons" href="#" class="nav-link h4 w-100 mb-5">
@@ -1983,6 +2083,24 @@ ul{
         sidebar.classList.toggle("active-nav");
         container.classList.toggle("active-cont");
       });
+    </script>
+
+  <script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
     </script>
 
 
