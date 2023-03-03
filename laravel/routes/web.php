@@ -25,7 +25,21 @@ Route::get('/', function () {
 // });
 
 
-Route::get('home', [Controller::class,'myFunction'])->name('home');
+Route::get('/', function () {
+    return view('login')->name('/');
+});
+
+/* Session logout for home page  */
+
+Route::middleware(['checksession'])->group(function () {
+    Route::get('home', [Controller::class, 'myFunction'])->name('home');
+});
+
+/*  END Logout for home page  */ 
+
+
+
+// Route::get('home', [Controller::class,'myFunction'])->name('home');
 Route::get('login', [Controller::class,'login'])->name('login');
 /*Glass singup and Signin forms */
 Route::get('glasssignup', [Controller::class, 'glassregister'])->name('glasssignup');
@@ -37,7 +51,7 @@ Route::post('glasssignupdata', [Controller::class, 'glassregisterform'])->name('
 Route::post('glasslogindata', [Controller::class, 'glassloginformm'])->name('glasslogindata');
 
 /*  SIGN UP FORM ROUTE */
-Route::post('signupform', [Controller::class,'register'])->name('signupform');
+Route::any('signupform', [Controller::class,'register'])->name('signupform');
 
 
 /*  SIGN IN FORM ROUTE */
@@ -75,3 +89,10 @@ Route::get('qrcode', [Controller::class, 'qrcodefun'])->name('qrcode');
 Route::post('qrcodedata', [Controller::class, 'qrcodefunction'])->name('qrcodedata');
 
 
+/*  CRUD OPERATION CODE */
+
+Route::get('crudtbl', [Controller::class, 'crudoprateview'])->name('crudtbl');
+
+Route::get('create', [Controller::class, 'createtableview'])->name('create');
+
+Route::get('view', [Controller::class, 'viewdatafunc'])->name('view');

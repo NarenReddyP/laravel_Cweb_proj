@@ -447,7 +447,7 @@ unset($_SESSION['fail']);
 <span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
 
 
-
+          {{-- <img src="{{ asset('assets/C_img/QRcode2023-03-03.PNG') }}" width="100" height="150" style="padding-bottom:5%;"> --}}
       <form action="{{url('loginform')}}" class="sign-in-form" method="POST" enctype="multipart/form-data">
         @csrf
         <h2 class="title">Sign In</h2>
@@ -469,7 +469,7 @@ unset($_SESSION['fail']);
         <div class="col-md-6 offset-md-4">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="remember"> Remember Me <i class="fa fa-check" aria-hidden="true"></i>
+                    <input type="checkbox" name="remember" value="1"> Remember Me <i class="fa fa-check" aria-hidden="true"></i>
                 </label>
             </div>
          </div>
@@ -564,8 +564,8 @@ unset($_SESSION['fail']);
 
 
       <span id="gendertags">Select Your Gender   <input type="radio" id="Male" checked name="Gender" value="Male"><label for="html"> Male</label>
-      <input type="radio" id="Female" name="Gender" value="Female"><label for="css"> Female</label>
-      <input type="radio" id="Others" name="Gender" value="Others"><label for="javascript"> Others</label></span>
+      <input type="radio" id="Female" name="Gender" value="Female"><label for="css"> Female</label>
+      <input type="radio" id="Others" name="Gender" value="Others"><label for="javascript"> Others</label></span>
 
 
       <input type="submit" name="SUBMITsUP"  value="Sign Up" class="btn solid">

@@ -33,9 +33,9 @@ img{
 <main class="login-form">
   <div class="cotainer">
       <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-8" style="box-shadow: 8px 8px 15px #7c898d;>
               <div class="card">
-                  <div class="card-header">Reset Password</div>
+                  <div class="card-header" style="text-align: center; font-weight: 600;color:#d91a79;background-image: linear-gradient(to bottom right, #dd7cc2, #a6c2f6);">Reset Password</div>
                   <div class="card-body">
   
                     {{-- @if (Session::has('resetsuccess'))
@@ -75,7 +75,7 @@ img{
                           <div class="form-group row">
                               <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                               <div class="col-md-6">
-                                  <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                                  <input type="text" id="email_address" class="form-control" name="email" placeholder="Enter your email" required autofocus>
                                   @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
@@ -95,7 +95,7 @@ img{
               </div>
           </div>
       </div>
-      <img src="{{ asset('assets/C_img/1598084.PNG') }}" alt="image">
+      <img src="{{ asset('assets/C_img/forgot-password-4571933.PNG') }}" alt="image">
   </div>
 </main>
 {{-- @endsection --}}

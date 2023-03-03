@@ -32,9 +32,9 @@
 <main class="login-form">
   <div class="cotainer">
       <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-8" style="box-shadow: 8px 8px 15px #7c898d;">
               <div class="card">
-                  <div class="card-header">Reset Password</div>
+                  <div class="card-header" style="text-align: center; font-weight: 600;color:#d91a79;background-image: linear-gradient(to bottom right, #dd7cc2, #a6c2f6);">Reset Your Password</div>
                   <div class="card-body">
 
 
@@ -67,7 +67,7 @@
                           <div class="form-group row">
                               <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                               <div class="col-md-6">
-                                  <input type="password" id="password" class="form-control" name="password" placeholder="Enter New password">
+                                  <input type="password" id="password" class="form-control" name="password" placeholder="Enter new password">
                                   @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
                                   @endif

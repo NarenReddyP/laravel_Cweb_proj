@@ -18,7 +18,7 @@
 
 <table style="width:75%">
 <tr style="background-color:#F7C8E0;">
-<th style="padding:1rem;border:1px solid #cc2290;"><img src="http://127.0.0.1:8000/assets/C_img/forget-pin.PNG" alt="image" width="10px" class="img-logo"></th>
+<th style="padding:1rem;border:1px solid #cc2290;"><img src="{{ asset('assets/C_img/forget-pin.PNG') }}" alt="image" width="10px" height="10px" class="img-logo"></th>
 </tr>
 <tr>
 <td style="padding:2rem 3rem;border-left:1px solid #cc2290;border-right:1px solid #cc2290;">

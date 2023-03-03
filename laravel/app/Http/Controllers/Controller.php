@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Mail\ResetPasswordEmail;
 use Illuminate\Support\Facades\URL;
+use PDF;
+use Closure;
 
 use function GuzzleHttp\Promise\all;
 
@@ -36,6 +38,16 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
    public function myFunction()
     {  
     return view('index');
+    }
+
+    public function viewtest(){
+
+      if(Auth::guest()){
+          return redirect()->route('/');
+      }
+      $data = User::all();
+      return view('login',compact('data'));
+
     }
 
     public function login(){
@@ -68,6 +80,12 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function qrcodefun(){
       return view('qrcode');
     }
+
+    public function crudoprateview(){
+      return view('user.crudtbl');
+    }
+
+    
 
     public function register(Request $request){
 
@@ -102,9 +120,14 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
      'username'=>$request->input('userName'),
      'email'=>$request->input('email'),
+     'email_verified_at'=>now(),
+     'is_verified'=>'1',
      'mobile'=>$request->input('mobile'),
      'password'=>bcrypt($request->input('password')),
      'Cpassword'=>$request->input('Cpassword'),
+     'remember_token'=>'',
+     'created_at'=>now(),
+     'updated_at'=>now(),
      'Gender'=>$request->input('Gender'),
      'Date'=>now()
      
@@ -532,7 +555,6 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
                  }
 
-
                 //  $request->validate([
                 //      'email' => 'required|email|exists:user_login_tbl',
                 //      'password' => 'required|string|min:6|confirmed',
@@ -559,7 +581,6 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
              }
             
-
             //password reset functionality //
 
             public function resetPassword(Request $request){
@@ -615,13 +636,6 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
             }
-
-
-
-
-
-
-
 
 
             // QR CODE  started from here//

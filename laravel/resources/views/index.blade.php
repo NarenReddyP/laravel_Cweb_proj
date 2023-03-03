@@ -158,10 +158,6 @@ ul{
   
 }
 
-.fa-angle-double-down{
-   float: right;
-   padding-right: 8px;
-}
 .aitemsstyle{
     text-decoration: none;
     color:#370844;
@@ -231,9 +227,6 @@ ul{
 }
 
 
-
-
-
 .dropdown-btn{
     background-color: #370844;
     color:#370844;
@@ -252,14 +245,16 @@ ul{
   text-align: left;
   cursor: pointer;
   outline: none;
+  transition: 0.5s;
 }
 
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
+  color: #fff;
   display: block;
   background-color: #5f4756;
   width: 170px;
+  border-radius: 8px;
   transition: 0.5s;
 }
 
@@ -279,11 +274,29 @@ ul{
   padding-left: 0px;
   width: 170px;
 }
+.dropdown-container a{
+    font-size: 12px;
+    color: #cc2290;
+
+}
+
+#dropdownid{
+  background-color: #370844;
+  color: #fff;
+  width: 170px;
+  font-size: 15px;
+}
 
 /* Optional: Style the caret down icon */
 .fa-caret-down {
   float: right;
   padding-right: 8px;
+  padding-top: 6px;
+  
+}
+#itab1,#itab2,#itab3,#itab4,#itab5{
+    float: right;
+    padding-top: 6px;
 }
 
 /* Some media queries for responsiveness */
@@ -315,7 +328,6 @@ ul{
    <!--Logo [this is class white-nav-top] -->
    <a class="navbar-brand  smooth-scroll logo" href="#home">
        <img src="https://127.0.0.1:8000/assets/C_img/favicon/favicon-32x32.png" alt="LOGO">
-
    </a>
 
      <!--
@@ -384,34 +396,36 @@ ul{
       </a>
       <li href="#" class="nav_linkk">
         <i class="bx bxs-dashboard"></i>
-        <a class="aitemsstyle" href=""><span class="mx-2">Home   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+        <a class="aitemsstyle" href=""><span class="mx-2">Home   <i id="itab1" class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
       </li>
       <li href="#" class="nav_linkk">
         <i class="bx bx-user-check"></i>
-        <a class="aitemsstyle"  href=""><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+        <a class="aitemsstyle"  href="{{ route('crudtbl') }}"><span class="mx-2">CRUD TBL <i id="itab2" class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
       </li>
       <li href="#" class="nav_linkk" id="qrcodedec">
         <i class="bx bx-conversation"></i>
-        <a class="aitemsstyle" href="{{ route('qrcode') }}"><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+        <a class="aitemsstyle" href="{{ route('qrcode') }}"><span class="mx-2">QR Code   <i id="itab3" class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
       </li>
       <li href="#" class="nav_linkk">
         <i class="bx bxs-dashboard"></i>
-        <a class="aitemsstyle" href=""><span class="mx-2">Home   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+        <a class="aitemsstyle" href=""><span class="mx-2">Home   <i id="itab4" class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
             
       </li>
       <li href="#" class="nav_linkk">
         <i class="bx bx-user-check"></i>
-        <a class="aitemsstyle"  href=""><span class="mx-2">QR Code   <i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+        <a class="aitemsstyle"  href=""><span class="mx-2">QR Code   <i id="itab5" class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
       </li>
       
       <div class="sidenav">
-      <button class="dropdown-btn">Dropdown 
+      <button id="dropdownid" class="dropdown-btn">Webdocs 
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-container">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#">HTML DOC</a>
+        <a href="#">CSS DOC</a>
+        <a href="#">JS DOC</a>
+        <a href="#">PHP DOC</a>
+        <a href="#">CRUD OPER</a>
       </div>
     </div>
 
