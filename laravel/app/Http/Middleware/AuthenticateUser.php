@@ -21,7 +21,6 @@ class AuthenticateUser
       return redirect()->route('login');
 
        }
-       
 
         return $next($request);
     }

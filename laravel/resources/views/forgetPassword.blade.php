@@ -33,7 +33,7 @@ img{
 <main class="login-form">
   <div class="cotainer">
       <div class="row justify-content-center">
-          <div class="col-md-8" style="box-shadow: 8px 8px 15px #7c898d;>
+          <div class="col-md-8" style="box-shadow: 8px 8px 15px #7c898d;">
               <div class="card">
                   <div class="card-header" style="text-align: center; font-weight: 600;color:#d91a79;background-image: linear-gradient(to bottom right, #dd7cc2, #a6c2f6);">Reset Password</div>
                   <div class="card-body">

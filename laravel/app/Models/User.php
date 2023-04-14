@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
+
 use App\Mail\ResetPasswordEmail;
 
 class User extends Authenticatable
@@ -18,11 +19,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
     //  */
-    protected $table='user_login_tbl';
+    protected $table='jsonuser_login_tbl';
     protected $fillable = [
         'userName',
         'email',
         'password',
+        'usertype',
     ];
     public $timestamps = false;
     /**
@@ -93,11 +95,32 @@ class User extends Authenticatable
 
     }
 
+    public static function jsondatadb($jsondata){
+
+        $resultjson = DB::table('jsondbdata')->insert($jsondata);
+        return $resultjson;
+    }
+
+    public static function updateJsondbdata($rowid,$new_jsonarray)
+    {
+        $result = DB::table('jsondbdata')->where('id',$rowid)->update(['jsonarray' => $new_jsonarray]);
+        return $result;
+    }
+
+    //JSON USER REGISTER AND LOGIN DATA//
+
+    public static function jsonregisterdata($jsonparameters){
+
+        $jsonres = DB::table('jsonuser_login_tbl')->insert($jsonparameters);
+        return $jsonres;
+    }
+
+    // id,username,email,email_verified_at,is_verified,password,Cpassword,remember_token,created_at,updated_at,Gender,Date
+
+     
 
 
 
-
-
-
+    
 
 }

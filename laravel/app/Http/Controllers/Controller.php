@@ -42,11 +42,11 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function viewtest(){
 
-      if(Auth::guest()){
-          return redirect()->route('/');
-      }
-      $data = User::all();
-      return view('login',compact('data'));
+    if(Auth::guest()){
+    return redirect()->route('/');
+    }
+    $data = User::all();
+    return view('login',compact('data'));
 
     }
 
@@ -82,7 +82,7 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     }
 
     public function crudoprateview(){
-      return view('user.crudtbl');
+      return view('user.crudtbl'); 
     }
 
     
@@ -133,7 +133,7 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
      
      );
 
-    $singupdata = UserModel::registerdata($parameters);
+    $singupdata = User::registerdata($parameters);
 
     //return view('login');
 
@@ -155,12 +155,6 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
       ]);
 
-      // $validator = $request->Validator([
-      //   'userName' => 'required',
-      //   'password' => 'required'
-    
-      // ]);
-
       if ($validator->fails()) {
       return redirect('/login/')
                 ->withErrors($validator)
@@ -168,7 +162,6 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
       }
 
        $data = array ( 
-
        'username'=>$request->input('luserName'),
        'password'=>$request->input('lpassword')
        );
@@ -277,6 +270,7 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
          }
           //******************** *//
          // Function for logout  //
+        //***********************//
          public function logout(Request $request) {
  
          Session::flush();
@@ -284,8 +278,9 @@ use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
   
          return redirect('login');
          }
-         // END Function for logout  //
-
+           //******************** *//
+         // END Function for logout//
+        //***********************//
 
 
              // Start glass porject data form code here//

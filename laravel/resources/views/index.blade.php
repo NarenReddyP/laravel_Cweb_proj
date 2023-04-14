@@ -304,14 +304,8 @@ ul{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
-
-/* END LEFT SIDE MENU  */
-
     </style>
 </head>
-
-
 
 <body data-spy="scroll" data-target=".navbar" data-offset="75">
     <!--Preloader  -->
@@ -329,13 +323,6 @@ ul{
    <a class="navbar-brand  smooth-scroll logo" href="#home">
        <img src="https://127.0.0.1:8000/assets/C_img/favicon/favicon-32x32.png" alt="LOGO">
    </a>
-
-     <!--
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-         <div class="menuToggle" onclick="toggleMenu();"><i class="fas fa-bars"></i></div> -->
 
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
@@ -368,22 +355,16 @@ ul{
             <li class="nav-item">
               <a class="nav-link"  href="{{ url('change-password') }}" >ChangePassword</a>
             </li>
-            <li class="nav-item" style="padding-right:45px; ">
-              <a class="nav-link"  href="{{ url('logout') }}" >Logout</a>
+            <li class="nav-item" style="padding-right:75px;font-weight:800; ">
+              <a class="nav-link"  href="{{ url('logout') }}" >Log <i class="fa fa-sign-out" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item pl-0 ml-5">
                 <a class="btn border-0 nav-link" id="menu-btn"><i class="bx bx-menu"></i></a>
             </li>
-              
-        
           </ul>
-
-
         </div>
     </nav>
-     
     
-
    </header>
    <!--Header Ends -->
 
@@ -2115,6 +2096,17 @@ ul{
         }
       });
     }
+
+    // /*  Scroll bar  */
+    // $(function(){
+    // $('#sidebar').click(function(e){
+    // e.preventDefault();
+    // $('#sidebar').toggleClass('toggled');
+    // });
+    // });
+
+
+
     </script>
 
 

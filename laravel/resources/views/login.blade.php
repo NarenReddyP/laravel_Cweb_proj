@@ -414,7 +414,7 @@ form{
   color: #CB1C8D;
 
 }
-#forgetpass:hover{color:#CB1C8D;}
+#forgetpasss:hover{color:#CB1C8D;}
 #togglePassword:hover{color:#CB1C8D;}
 
 </style>
@@ -478,9 +478,9 @@ unset($_SESSION['fail']);
 
        <input type="submit" name="SUBMITsIN" value="login" class="btn solid">
 
-       <a href="{{ route('forget.password.get') }}" style="text-decoration: none;color:#7209B7;">Forgot password?</a>
+       <a href="{{ route('forget.password.get') }}" style="text-decoration: none;color:#7209B7;"><span id="forgetpasss">Forgot password ?</span></a>
 
-       <p class="social-text">Or Sign in with social platforms</p>
+       <p class="social-text">Please follow below our social platforms</p>
        <div class="social-media">
          <a href="#" class="social-icon">
            <i class="fab fa-facebook-f"></i>
@@ -570,7 +570,7 @@ unset($_SESSION['fail']);
 
       <input type="submit" name="SUBMITsUP"  value="Sign Up" class="btn solid">
 
-      <p class="social-text">Or Sign up with social platforms<br/>*Ph.no starting with 9/8/7 and other 9 digit using any number</p>
+      <p class="social-text"><span style="color:#d5137a;">*</span>Ph.no starting with 9/8/7 and other 9 digit using any number.<br/> Please follow below our social platforms</p>
       <div class="social-media">
         <a href="#" class="social-icon">
           <i class="fab fa-facebook-f"></i>
